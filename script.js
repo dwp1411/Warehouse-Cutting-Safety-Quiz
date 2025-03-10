@@ -295,7 +295,7 @@ function selectAnswer(selectedOption, button) {
 
 // Function to send results to Google Sheet
 function sendResults(score, totalQuestions) {
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwL4doI2S8hv_f2Zn-yRojOfz76V5JibiPp-MHC9iexdpB6RYTbCfzgiNM3erj1h0ha/exec'; //  !!! REPLACE THIS WITH YOUR WEB APP URL !!!
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw0Tg-Z5De0zFGALZ_NVkb7zAXg6g4dGTXYauaxRuoaLGftDKAZK3egOrZwc3XjV0d9/exec'; //  !!! REPLACE THIS WITH YOUR WEB APP URL !!!
 
     // Get the user's name from the input field.  If it's empty, use 'Anonymous'.
     const userName = document.getElementById('user-name').value || 'Anonymous';
