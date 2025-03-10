@@ -1,0 +1,258 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f7fa; /* Fallback color */
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease-in-out;
+    /* Initial background image (for index page) */
+    background-image: url('images/warehouse-background.jpg'); /* USE YOUR IMAGE NAME! */
+}
+
+.quiz-content {
+    /* New container to hold everything *except* the title */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center vertically AFTER the title */
+    flex-grow: 1; /* Allow this container to take up remaining space */
+    padding-top: 20px; /* Add some padding*/
+}
+
+.quiz-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 700px;
+    transition: transform 0.3s ease-in-out;
+    text-align: center; /* Center content within the container */
+}
+
+.quiz-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Title Styling (Banner) */
+#main-title {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    background-color: #fff;
+    color: #333; /* Dark gray text - almost black */
+    font-size: 2.8em;
+    font-weight: 700;
+    padding: 15px 45px;
+    border-bottom: 3px solid #333; /* Black border */
+    border-radius: 0 0 12px 12px;
+    text-align: center;
+    z-index: 1000;
+    max-width: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+}
+
+/* Remove pseudo-elements for ribbon tails */
+#main-title::before,
+#main-title::after {
+    display: none;
+}
+/* Quiz Description Styling */
+#quiz-description {
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    width: 80%;
+    max-width: 600px;
+}
+
+/* Input Field Styling */
+#user-name {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    margin-bottom: 20px; /* Space between input and button */
+    width: 80%; /* Make it a reasonable width */
+    max-width: 400px; /* But not too wide */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+}
+
+/* Placeholder Styling (for the faded text) */
+#user-name::placeholder {
+    color: #999; /* Light gray color */
+    font-style: italic; /* Italicize the placeholder */
+}
+
+/*Start Button*/
+#start-button {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    overflow: hidden;
+    width: 220px;
+    height: 55px;
+    transition: transform 0.2s ease;
+    margin: 0 auto;
+    display: block;
+
+}
+
+#start-button:hover {
+    transform: scale(1.05);
+}
+
+/* Box Cutter Handle (Main Button Body) */
+#start-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333; /* Black handle */
+    border-radius: 8px;
+    z-index: 1;
+}
+
+/* Box Cutter Blade (Pseudo-element) */
+#start-button::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: -25px;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 30px solid #ddd; /* Keep blade gray */
+    z-index: 2;
+    transition: right 0.3s ease;
+}
+
+#start-button:hover::after {
+    right: -20px;
+}
+
+/* Text inside the button */
+#start-button span {
+    position: relative;
+    z-index: 3;
+    color: white;
+    font-size: 1.4em;
+    font-weight: 600;
+    padding: 15px 25px;
+}
+
+/* Question and Options Styles */
+#question {
+    font-size: 1.2em;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+
+}
+
+.option {
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border: 1px solid #d1d8e0;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    font-size: 1em;
+    color: #555;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.option:hover {
+    background-color: #eee; /* Lighter gray on hover */
+    border-color: #ccc; /* Slightly darker border */
+    color: #333; /* Darker text on hover */
+}
+
+/*Next Button*/
+#next-button {
+    background-color: #333; /* Black button */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 25px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+}
+
+#next-button:hover {
+    background-color: #555; /* Slightly lighter black on hover */
+}
+
+#result {
+    margin-top: 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333; /* Dark gray text */
+    text-align: center;
+}
+
+.correct {
+ background-color: #d0f0c0;
+ border-color: #9ed670;
+ color: #38761d;
+}
+
+.incorrect {
+ background-color: #ffdddd;
+ border-color: #f19c99;
+ color: #d9534f;
+}
+
+#restart-button {
+     background-color: #333; /* Black button */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 25px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+}
+
+#restart-button:hover {
+    background-color: #555; /* Slightly lighter black on hover */
+}
+
+#question-container{
+    display:none;
+}
