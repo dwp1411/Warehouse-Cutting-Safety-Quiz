@@ -295,7 +295,7 @@ function selectAnswer(selectedOption, button) {
 
 // Function to send results to Google Sheet.
 function sendResults(score, totalQuestions) {
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwL4doI2S8hv_f2Zn-yRojOfz76V5JibiPp-MHC9iexdpB6RYTbCfzgiNM3erj1h0ha/exec'; //  !!! YOUR WEB APP URL !!!
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzQ5Zr1YUwGzR9ipO8umkaHDHBQpFIuvtSeXeMUP1LbUHmcUMCKdy0g-B67ah4QrAX0/exec'; //  !!! YOUR WEB APP URL !!!
 
     const userName = document.getElementById('user-name').value || 'Anonymous';
 
