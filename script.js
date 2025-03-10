@@ -308,24 +308,33 @@ function sendResults(score, totalQuestions) {
         user: userName //  Include the user's name
     };
 
-    // Use fetch to send a POST request to the Google Apps Script.
-    fetch(https://script.google.com/macros/s/AKfycbwL4doI2S8hv_f2Zn-yRojOfz76V5JibiPp-MHC9iexdpB6RYTbCfzgiNM3erj1h0ha/exec, {
+   // Function to send results to Google Sheet.  KEEP THIS AT THE *END* OF YOUR SCRIPT.
+function sendResults(score, totalQuestions) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwL4doI2S8hv_f2Zn-yRojOfz76V5JibiPp-MHC9iexdpB6RYTbCfzgiNM3erj1h0ha/exec'; //  !!! YOUR WEB APP URL !!!
+
+    const userName = document.getElementById('user-name').value || 'Anonymous';
+
+    const data = {
+        score: score,
+        totalQuestions: totalQuestions,
+        user: userName
+    };
+
+    fetch(scriptURL, { // Use the scriptURL variable here
         method: 'POST',
-        mode: 'cors', // Important for cross-origin requests
+        mode: 'cors',
         cache: 'no-cache',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data) // Convert the data object to a JSON string
+        body: JSON.stringify(data)
     })
-    .then(response => response.json()) // Parse the JSON response from the Apps Script
+    .then(response => response.json())
     .then(data => {
         if (data.result === 'success') {
             console.log('Data sent successfully!');
-            // You could display a success message to the user here.
         } else {
             console.error('Error sending data:', data.error);
-            // Display an error message to the user.
             alert('There was an error saving your results. Please try again later.');
         }
     })
