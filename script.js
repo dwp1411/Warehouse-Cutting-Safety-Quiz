@@ -309,7 +309,7 @@ function sendResults(score, totalQuestions) {
     };
 
     // Use fetch to send a POST request to the Google Apps Script.
-    fetch(scriptURL, {
+    fetch(https://script.google.com/macros/s/AKfycbwL4doI2S8hv_f2Zn-yRojOfz76V5JibiPp-MHC9iexdpB6RYTbCfzgiNM3erj1h0ha/exec, {
         method: 'POST',
         mode: 'cors', // Important for cross-origin requests
         cache: 'no-cache',
